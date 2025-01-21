@@ -16,7 +16,9 @@ public class spawnAnimal : MonoBehaviour
     {
         float elapsedTime = Time.time;
         if (elapsedTime > timeStamp + spawnRate){
-            Instantiate(myPrefab, new Vector3(Random.Range(-5f, 5f), 0f, Random.Range(-5f, 5f)), Quaternion.AngleAxis(Random.Range(0, 360), transform.up));
+            GameObject deer = Instantiate(myPrefab, new Vector3(Random.Range(-5f, 5f), 0f, Random.Range(-5f, 5f)), Quaternion.AngleAxis(Random.Range(0, 360), transform.up));
+            float scaleFactor = Random.Range(0.8f, 2f);
+            deer.transform.localScale *= scaleFactor;
             timeStamp = elapsedTime;
         }
     }
